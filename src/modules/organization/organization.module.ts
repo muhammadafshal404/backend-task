@@ -5,7 +5,7 @@ import { OrganizationService } from './service/organization.service';
 
 @Module({
   imports: [
-    // TypeOrmModule.forFeature([Organization]),
+    TypeOrmModule.forFeature([Organization]),
   ],
   providers: [OrganizationService],
   exports: [OrganizationService],

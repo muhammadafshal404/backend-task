@@ -5,7 +5,7 @@ import { AddressService } from './service/address.service';
 
 @Module({
   imports: [
-    // TypeOrmModule.forFeature([Address]),
+    TypeOrmModule.forFeature([Address]),
   ],
   providers: [AddressService],
   exports: [AddressService],

@@ -1,24 +1,26 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AddressModule } from './modules/address/address.module';
+import { AppController } from './app.controller';
 import { SchoolModule } from './modules/school/school.module';
+import { AddressModule } from './modules/address/address.module';
 import { OrganizationModule } from './modules/organization/organization.module';
 
 
 @Module({
   imports: [
-    // TypeOrmModule.forRoot({
-    //   type:"postgres",
-    //   host: process.env.POSTGRES_HOST,
-    //   port: parseInt(<string>process.env.POSTGRES_PORT),
-    //   username: process.env.POSTGRES_USERNAME,
-    //   password: process.env.POSTGRES_PASSWORD,
-    //   database: process.env.POSTGRES_DATABASE,
-    //   autoLoadEntities: true,
-    //   synchronize: true,
-    // }), 
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type:"postgres",
+      host: process.env.POSTGRES_HOST,
+      port: parseInt(process.env.POSTGRES_PORT),
+      username: process.env.POSTGRES_USERNAME,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DATABASE,
+      autoLoadEntities: true,
+      synchronize: true,
+    }), 
     AddressModule, SchoolModule, OrganizationModule
   ],
   controllers: [AppController],

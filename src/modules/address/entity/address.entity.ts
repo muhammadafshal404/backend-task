@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { School } from 'src/modules/school/entity/school.entity';
 
 @Entity('addresses')
 export class Address {
@@ -17,7 +18,7 @@ export class Address {
   @Column({ type: 'varchar', length: 255 })
   state: Date;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: false, unique: true })
   address: string;
 
   @Column({ type: 'float', nullable: true })
@@ -25,4 +26,7 @@ export class Address {
 
   @Column({ type: 'float', nullable: true })
   longitude: Float32Array;
+
+  @OneToMany(() => School, (school) => school.address)
+  schools: School[]
 }
