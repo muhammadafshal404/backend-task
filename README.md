@@ -72,6 +72,14 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Python code
+
+You can find `upload-file.py` file on root of folder. This file includes code to upload the json file. You can use following command to run the file:
+
+```bash
+$ python file_name
+```
+
 ## Resources
 
 Check out a few resources that may come in handy when working with NestJS:
