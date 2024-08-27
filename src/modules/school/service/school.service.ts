@@ -2,10 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { School } from '../entity/school.entity';
 @Injectable()
 export class SchoolService {
-  constructor( ) { }
+  constructor() {}
 
   async createSchool(school, queryRunner) {
     return await queryRunner.manager.upsert(School, school, ['name']);
-    // return await this.schoolRepository.upsert(school, ['name'])
   }
 }

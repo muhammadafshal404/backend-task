@@ -1,5 +1,11 @@
 import { Address } from 'src/modules/address/entity/address.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  DeleteDateColumn,
+} from 'typeorm';
 import { Organization } from 'src/modules/organization/entity/organization.entity';
 
 @Entity('schools')
@@ -16,7 +22,7 @@ export class School {
   @Column({ type: 'varchar', length: 255, nullable: true })
   startTime: string;
 
-  @Column({ type: 'varchar', length: 255, })
+  @Column({ type: 'varchar', length: 255 })
   endTime: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
@@ -28,9 +34,12 @@ export class School {
   @Column({ type: 'boolean', nullable: true })
   hasLaptop: boolean;
 
+  @DeleteDateColumn()
+  deletedAt?: Date;
+
   @ManyToOne(() => Address, (address) => address.schools)
-  address: Address
+  address: Address;
 
   @ManyToOne(() => Organization, (organization) => organization.schools)
-  organization: Organization
+  organization: Organization;
 }
