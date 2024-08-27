@@ -32,6 +32,20 @@
 $ npm install
 ```
 
+## Configuration
+
+1. Create a file named .env in the root of your project directory. This file will store environment variables that your application needs to run.
+
+2. Add the following environment variables to your .env file, Add the values for following `POSTGRES_HOST, POSTGRES_PORT, POSTGRES_USERNAME, POSTGRES_PASSWORD,  POSTGRES_DATABASE`
+
+```
+  POSTGRES_HOST=
+  POSTGRES_PORT=
+  POSTGRES_USERNAME=
+  POSTGRES_PASSWORD=
+  POSTGRES_DATABASE=
+```
+
 ## Compile and run the project
 
 ```bash
